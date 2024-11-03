@@ -18,6 +18,9 @@ class TestUserLogin:
                                  data={"email": email,
                                        "password": password})
         assert response.status_code == 200 and "name" in response.text
+        token = response.json().get("accessToken")
+        delete_response = requests.delete(DELETE_USER_URL, headers={"Authorization": token})
+        assert delete_response.status_code == 202
 
     @allure.title("Проверяем логин под данными несуществующего пользователя")
     def test_login_nonexistent_data(self):
