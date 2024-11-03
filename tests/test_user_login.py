@@ -3,7 +3,7 @@ from random import randint
 import allure
 import requests
 
-from links import CREATE_USER_URL, LOGIN_URL
+from links import *
 
 
 class TestUserLogin:
