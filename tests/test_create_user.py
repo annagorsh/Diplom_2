@@ -11,7 +11,7 @@ class TestCreateUser:
         response = requests.post(CREATE_USER_URL, data = payload)
         assert response.status_code == 200 and "accessToken" in response.text
         token = response.json().get("accessToken")
-        delete_response = requests.delete(DELETE_USER_URL, headers={"Authorization": token})
+        delete_response = requests.delete(AUTH_USER_URL, headers={"Authorization": token})
         assert delete_response.status_code == 202
 
     @allure.title("Проверяем, что нельзя создать пользователя, если такой уже зарегистрирован")
@@ -22,7 +22,7 @@ class TestCreateUser:
         response2 = requests.post(CREATE_USER_URL, data=user_data)
         assert response2.status_code == 403 and "User already exists" in response2.text
         token = response1.json().get("accessToken")
-        delete_response = requests.delete(DELETE_USER_URL, headers={"Authorization": token})
+        delete_response = requests.delete(AUTH_USER_URL, headers={"Authorization": token})
         assert delete_response.status_code == 202
 
     @allure.title("Проверяем, что нельзя создать пользователя, передав не все параметры")

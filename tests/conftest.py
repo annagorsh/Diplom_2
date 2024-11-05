@@ -24,6 +24,11 @@ def payload():
     return payload
 
 @pytest.fixture
+def rand_name():
+    rand_name = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(10))
+    return rand_name
+
+@pytest.fixture
 def incomplete_user_data():
     email = str(randint(10000, 99999)) + "@gmail.com"
     password = str(randint(1000000, 9999999))
