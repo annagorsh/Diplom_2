@@ -37,3 +37,15 @@ def incomplete_user_data():
         "password": password
     }
     return incomplete_user_data
+
+@pytest.fixture
+def ingredients_list():
+    ingredients_list = { "ingredients":
+    ["61c0c5a71d1f82001bdaaa6d",
+    "61c0c5a71d1f82001bdaaa6c",
+    "61c0c5a71d1f82001bdaaa73",
+    "61c0c5a71d1f82001bdaaa70",
+    "61c0c5a71d1f82001bdaaa79",
+    "61c0c5a71d1f82001bdaaa78"]
+                         }
+    return ingredients_list
