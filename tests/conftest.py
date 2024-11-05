@@ -49,3 +49,15 @@ def ingredients_list():
     "61c0c5a71d1f82001bdaaa78"]
                          }
     return ingredients_list
+
+@pytest.fixture
+def invalid_ingredients():
+    invalid_ingredients = { "ingredients":
+    ["aaaaaaaaaaa",
+    "bbbbbbbbbbb",
+    "ccccccccccc",
+    "aaaaa123",
+    "абв",
+    "123456789"]
+                         }
+    return invalid_ingredients
