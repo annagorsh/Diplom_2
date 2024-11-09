@@ -1,9 +1,6 @@
 import allure
 import requests
-
 from links import *
-
-
 
 class TestGetOrders:
 
